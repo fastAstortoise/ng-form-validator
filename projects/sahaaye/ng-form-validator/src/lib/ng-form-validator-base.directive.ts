@@ -1,7 +1,8 @@
-import {ComponentFactoryResolver, Input, OnChanges, OnInit, SimpleChanges, ViewContainerRef} from '@angular/core';
+import { ComponentFactoryResolver, Input, OnChanges, OnInit, SimpleChanges, ViewContainerRef, Directive } from '@angular/core';
 import {FormControlName, FormGroupDirective} from '@angular/forms';
 import {NgFormValidatorComponent} from "./ng-form-validator.component";
 
+@Directive()
 export class NgFormValidatorBaseDirective implements OnInit, OnChanges {
   @Input() errorOnTouched = true;
   private compRef;

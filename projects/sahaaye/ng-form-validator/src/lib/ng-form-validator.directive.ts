@@ -7,9 +7,9 @@ import { NgFormValidatorBaseDirective } from './ng-form-validator-base.directive
 })
 export class NgFormValidatorDirective extends NgFormValidatorBaseDirective {
   constructor(
-    private vcr: ViewContainerRef,
-    private cfr: ComponentFactoryResolver,
-    private ctl: FormControlName,
+     vcr: ViewContainerRef,
+     cfr: ComponentFactoryResolver,
+     ctl: FormControlName,
   ) {
     super(vcr, cfr, ctl);
     if(!ctl){

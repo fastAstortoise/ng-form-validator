@@ -1,29 +1,21 @@
 import {Component, Input} from '@angular/core';
-import {animate, state, style, transition, trigger} from "@angular/animations";
 import {AbstractControl} from "@angular/forms";
+import {NgFormValidatorServiceConfig} from "./ng-form-validator.service";
 
 @Component({
   selector: 'lib-ng-form-validator',
-  animations: [
-    trigger("fadeIn", [
-      state("void", style({
-        opacity: 0,
-        height: 0,
-      })),
-      transition("void <=> *",
-        animate("0.35s")),
-    ]),],
-  template: `
-    <div @fadeIn class="invalid-feedback" [ngClass]="classType" *ngIf="isDirtyAndInvalid">
+  template: `<div class="invalid-feedback" [ngClass]="classType" *ngIf="isDirtyAndInvalid">
       <i class="fa fa-fw" [ngClass]="iconClass"></i>
-      {{ message }}</div>
-  `,
-  styles: []
+      {{ message }}</div>`
 })
 export class NgFormValidatorComponent {
   @Input() control: AbstractControl;
   @Input() showOnTouched = false;
-  constructor() {}
+  constructor(
+    private _config: NgFormValidatorServiceConfig
+  ) {
+    this._config.showErrorsOnLoad.subscribe((value => {}))
+  }
 
   get errors() {
     return this.control.errors;
