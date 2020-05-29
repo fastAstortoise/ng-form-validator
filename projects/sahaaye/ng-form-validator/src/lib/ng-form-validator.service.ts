@@ -1,21 +1,26 @@
 import {Injectable, Optional} from '@angular/core';
-import {INgFormValidatorConfig} from "./ng-form-validator.interface";
-import {BehaviorSubject} from "rxjs";
+import {NgFormValidatorComponent} from "./ng-form-validator.component";
 
-class NgFormDefaultConfig implements INgFormValidatorConfig {
+export class NgFormDefaultConfig  {
   showErrorsOnLoad = false;
+  textClass = 'invalid-feedback';
+  iconClass = 'fa fa-fw fa-exclamation-circle';
+  component:any = NgFormValidatorComponent
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class NgFormValidatorServiceConfig {
-
-  showErrorsOnLoad = new BehaviorSubject(false);
+  config: NgFormDefaultConfig;
 
   constructor(@Optional() config?: NgFormDefaultConfig) {
     if(config) {
-      this.showErrorsOnLoad.next(config.showErrorsOnLoad);
+      const originalConfig = new NgFormDefaultConfig();
+      this.config = {
+        ...originalConfig,
+        ...config
+      };
     }
   }
 }
