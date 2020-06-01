@@ -1,17 +1,17 @@
 import { ComponentFactoryResolver, Directive, ViewContainerRef } from '@angular/core';
 import { NgFormValidatorBaseDirective } from './ng-form-validator-base.directive';
 import { FormGroupDirective } from '@angular/forms';
-import {NgFormValidatorServiceConfig} from "./ng-form-validator.service";
+import {NgFormValidatorService} from "./ng-form-validator.service";
 
 @Directive({
-  selector: '[nfvFgValidation]'
+  selector: '[shFgValidation]'
 })
-export class NgFormValidatorFgDirective extends NgFormValidatorBaseDirective {
+export class NgFormFgValidatorDirective extends NgFormValidatorBaseDirective {
   constructor(
     private vcr: ViewContainerRef,
     private cfr: ComponentFactoryResolver,
     private ctl: FormGroupDirective,
-    private ngFormValidatorServiceConfig: NgFormValidatorServiceConfig) {
+    private ngFormValidatorServiceConfig: NgFormValidatorService) {
     super(vcr, cfr, ctl, ngFormValidatorServiceConfig);
     if(!ctl){
       throw Error('Directive should be contained in formGroup/FormArray');

@@ -4,7 +4,7 @@ import {AbstractControl} from "@angular/forms";
 @Component({
   selector: 'lib-ng-form-validator',
   template: `<div [ngClass]="textClass" *ngIf="isDirtyAndInvalid">
-      <i class="fa fa-fw" [ngClass]="iconClass"></i>
+      <i [ngClass]="iconClass"></i>
       {{ message }}</div>`,
   styleUrls: ['./ng-form-validator.component.css']
 })
@@ -12,7 +12,7 @@ export class NgFormValidatorComponent {
   @Input() control: AbstractControl;
   @Input() showOnTouched = true;
   @Input() textClass = 'invalid-feedback';
-  @Input() iconClass = 'fa-exclamation-circle';
+  @Input() iconClass = 'exclamation-mark';
   constructor(
   ) {
   }

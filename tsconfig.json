@@ -19,12 +19,6 @@
       "dom"
     ],
     "paths": {
-      "ng-form-validator": [
-        "dist/ng-form-validator"
-      ],
-      "ng-form-validator/*": [
-        "dist/ng-form-validator/*"
-      ],
       "@sahaaye/ng-form-validator": [
         "dist/sahaaye/ng-form-validator"
       ],
