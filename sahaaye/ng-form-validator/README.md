@@ -1,24 +1,44 @@
-# NgFormValidator
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
-## Code scaffolding
+<h1> <img src="/assets/logo.png" width="70"> @sahaaye/ng-form-validator</h1>
 
-Run `ng generate component component-name --project ng-form-validator` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-form-validator`.
-> Note: Don't forget to add `--project ng-form-validator` or else it will be added to the default project in your `angular.json` file. 
+> The form validation library for angular reactive forms.
 
-## Build
+### Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
 
-Run `ng build ng-form-validator` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Publishing
 
-After building your library with `ng build ng-form-validator`, go to the dist folder `cd dist/ng-form-validator` and run `npm publish`.
 
-## Running unit tests
 
-Run `ng test ng-form-validator` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Installation
+
+`npm i @sahaaye/ng-form-validator`
+
+### Usage
+
+**1. Import `NgFormValidatorModule` :**
+
+You can use form validator by importing it in you app module of you Angular project. You have to import `NgFormValidatorModule.forRoot()` in the root of NgModule imports to initialize default configuration.
+
+By importing `forRoot()` you are configuring and intializing the service with default values or you can also provide custom configuration which we will look at later in this `README.md`.
+
+```ts
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import {NgFormValidatorModule} from '@sahaaye/ng-form-validator';
+
+@NgModule({
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        NgFormValidatorModule.forRoot()
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
