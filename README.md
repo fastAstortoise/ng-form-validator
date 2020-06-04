@@ -1,6 +1,6 @@
 
 
-<h1> <img src="/assets/Untitled.png" width="70"> @sahaaye/ng-form-validator</h1>
+<h1> <img src="/assets/logo.png" width="70"> @sahaaye/ng-form-validator</h1>
 
 > The form validation library for angular reactive forms.
 
