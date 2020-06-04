@@ -1,18 +1,20 @@
-
-
 <h1> <img src="/assets/logo.png" width="70"> @sahaaye/ng-form-validator</h1>
 
 > The form validation library for angular reactive forms.
 
 ### Table of Contents
 - [Installation](#installation)
+
 - [Usage](#usage)
-  -[Impoting Module](#1-import-ngformvalidatormodule)
-  -[Creating Reactive Form](#2-creating-reactive-form)
-  -[Using Directives](#3-using-directives-in-template)
+  - [Impoting Module](#1-import-ngformvalidatormodule)
+  - [Creating Reactive Form](#2-creating-reactive-form)
+  - [Using Directives](#3-using-directives-in-template)
+  
+- [Advanced Usage](#advanced-usage)  
+  - [Custom Component](#1-creating-custom-component)
+  - [Setting App Module](#2-setting-up-in-app-module)
 
-
-
+- [Configuration](#configuration-options)
 
 ### Installation
 
@@ -20,7 +22,7 @@
 
 ### Usage
 
-#### **1. Import `NgFormValidatorModule` :**
+#### **1. Import `NgFormValidatorModule`:**
 
 You can use form validator by importing it in you app module of you Angular project. You have to import `NgFormValidatorModule.forRoot()` in the root of NgModule imports to initialize default configuration.
 
@@ -114,4 +116,68 @@ and in the template you need to add directive `shFcValidator` for the form contr
 ```
 
 That's all. Only extra thing you have to add is directive and rest will be taken care of. These directives inject the instance of `FormArray` or `FormControl` based on which directive you use.
+
+### Advanced Usage
+
+#### **1. Creating custom component**
+
+You can also create you own template to show the validations. All you have to do is create new component and extend from `NgFormValidatorComponent`. Here you can use exposed variables like `textClass, iconClass, isDirtyAndInvalid` or you can just skip them but make sure you use `message` which will container the error message and `isDirtyAndInvalid` which as name suggests  
+show template when its dirty and invalid. We can override dirty in the config part which we will see later.
+
+```ts
+// my-custom-component.ts
+import { NgFormValidatorComponent } from '@sahaaye/ng-form-validator';
+
+@Component({
+  selector: 'coast-coast-validation-tpl',
+  templateUrl: `
+  <div class="invalid-feedback" [ngClass]="textClass" *ngIf="isDirtyAndInvalid">
+    <i  [ngClass]="iconClass"></i>
+  {{ message}}</div>
+  `,
+})
+export class MyCustomComponent extends NgFormValidatorComponent {
+}
+```
+#### **2. Setting Up in App Module**
+
+In your app module you will just add component in `forRoot()` of `NgFormValidatorModule`.
+
+```ts
+@NgModule({
+    exports: [
+        CommonModule,
+        ReactiveFormsModule,
+        NgFormValidatorModule.forRoot({
+         component: MyCustomComponent,
+        }),
+    ]
+})
+export class AppModule { }
+```
+
+### Configuration options
+
+As shown above you can configure you custom component. You can also take advantage of other options to override default values.
+ - `textClass` - to change the style of the message and icon. `Default: invalid-feedback`
+ - `iconClass` - to prepend icon to show before the message. `Default: fa fa-fw fa-exclamation-circle`
+ - `component` - to show you custom component. `Default: NgFormValidatorComponent`
+ - `showErrorsOnLoad` - to show errors on load. `Default: false`
+
+
+```ts
+@NgModule({
+    exports: [
+        CommonModule,
+        ReactiveFormsModule,
+        NgFormValidatorModule.forRoot({
+         component: NgFormValidatorComponent,
+         showErrorsOnLoad: false;
+         textClass: 'invalid-feedback';
+         iconClass: 'fa fa-fw fa-exclamation-circle';
+        }),
+    ]
+})
+export class AppModule { }
+```
 
