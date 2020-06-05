@@ -15,6 +15,11 @@
     "validator",
     "validation"
   ],
+  "homepage": "https://github.com/fastAstortoise/ng-form-validator/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fastAstortoise/ng-form-validator"
+  },
   "author": "gagandeep sidhu",
   "license": "ISC"
 }
