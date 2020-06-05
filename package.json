@@ -45,7 +45,7 @@
     "tslint": "~5.15.0",
     "typescript": "~3.8.3"
   },
-  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.",
+  "description": "The form validation library for angular reactive forms.",
   "keywords": [
     "angular",
     "angular",

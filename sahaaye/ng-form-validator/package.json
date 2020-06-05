@@ -1,8 +1,20 @@
 {
   "name": "@sahaaye/ng-form-validator",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
-  }
+  },
+  "description": "The form validation library for angular reactive forms.",
+  "keywords": [
+    "angular",
+    "reactive form",
+    "angular 9 reactive form",
+    "reactive form validation",
+    "angular form validator",
+    "validator",
+    "validation"
+  ],
+  "author": "gagandeep sidhu",
+  "license": "ISC"
 }
