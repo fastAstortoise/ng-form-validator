@@ -8,7 +8,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {FormControlName, FormGroupDirective} from '@angular/forms';
-import {NgFormValidatorService} from "./ng-form-validator.service";
+import {NgFormValidatorService} from './ng-form-validator.service';
 
 @Directive()
 export class NgFormValidatorBaseDirective implements OnInit, OnChanges {
@@ -37,7 +37,7 @@ export class NgFormValidatorBaseDirective implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const {currentValue} = changes;
-    if (!this.compRef) return;
+    if (!this.compRef) { return; }
     this.compRef.instance.showOnTouched = currentValue;
   }
 

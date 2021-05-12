@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {AbstractControl} from "@angular/forms";
+import {AbstractControl} from '@angular/forms';
 
 @Component({
-  selector: 'lib-ng-form-validator',
+  selector: 'sh-form-validator-tmpl',
   template: `<div [ngClass]="textClass" *ngIf="isDirtyAndInvalid">
       <i [ngClass]="iconClass"></i>
       {{ message }}</div>`,

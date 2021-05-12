@@ -10,7 +10,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "sahaaye/ng-form-validator/tsconfig.lib.json",
             "project": "sahaaye/ng-form-validator/ng-package.json"
