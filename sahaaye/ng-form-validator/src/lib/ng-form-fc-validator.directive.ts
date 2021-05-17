@@ -8,14 +8,11 @@ import {NgFormValidatorService} from './ng-form-validator.service';
 })
 export class NgFormFcValidatorDirective extends NgFormValidatorBaseDirective {
   constructor(
-     vcr: ViewContainerRef,
-     cfr: ComponentFactoryResolver,
-     ctl: FormControlName,
-     private ngFormValidatorServiceConfig: NgFormValidatorService
+    vcr: ViewContainerRef,
+    cfr: ComponentFactoryResolver,
+    cc: FormControlName,
+    private ngFormValidatorServiceConfig: NgFormValidatorService
   ) {
-    super(vcr, cfr, ctl, ngFormValidatorServiceConfig);
-    if (!ctl){
-      throw Error('Directive should on formControlName');
-    }
+    super(vcr, cfr, cc, ngFormValidatorServiceConfig);
   }
 }

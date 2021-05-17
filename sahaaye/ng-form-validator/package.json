@@ -1,15 +1,15 @@
 {
   "name": "@sahaaye/ng-form-validator",
-  "version": "9.1.1",
+  "version": "11.3.0",
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14"
+    "@angular/common": "~11.2.13",
+    "@angular/core": "~11.2.13"
   },
   "description": "The form validation library for angular reactive forms.",
   "keywords": [
     "angular",
     "reactive form",
-    "angular 9 reactive form",
+    "angular 11 reactive form",
     "reactive form validation",
     "angular form validator",
     "validator",

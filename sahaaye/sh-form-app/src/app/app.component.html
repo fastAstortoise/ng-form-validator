@@ -1,0 +1,151 @@
+<div class="container-fluid p-5 vh-100">
+  <div class="card">
+    <h5 class="card-header">Angular Reactive Form Validator Example</h5>
+    <div class="card-body">
+      <form (ngSubmit)="submit()" [formGroup]="fg">
+        <div class="row pt-5">
+          <div class="col-md-4 mb-3">
+            <label>First name</label>
+            <input class="form-control"
+                   formControlName="firstName"
+                   placeholder="First name"
+                   shFcValidation
+                   [showErrorsOnLoad]="true"
+                   type="text">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Last name</label>
+            <input class="form-control"
+                   formControlName="lastName"
+                   placeholder="Last name"
+                   shFcValidation type="text">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input aria-describedby="inputGroupPrepend3"
+                     class="form-control"
+                     formControlName="email"
+                     placeholder="Email" type="text">
+            </div>
+            <input formControlName="email" hidden shFcValidation>
+          </div>
+          <ng-container formGroupName="password">
+            <div class="col-md-4">
+              <label>Password</label>
+              <input class="form-control"
+                     formControlName="actual"
+                     placeholder="Password"
+                     shFcValidation type="text">
+            </div>
+            <div class="col-md-4">
+              <label>Confirm Password</label>
+              <input class="form-control"
+                     formControlName="confirm"
+                     placeholder="Confirm Password"
+                     shFcValidation type="text">
+            </div>
+            <div class="col-md-12 mb-3 mt-0">
+              <ng-template shFgValidation></ng-template>
+            </div>
+          </ng-container>
+          <div class="col-md-12 mb-3">
+            <button (click)="addAddress()" class="btn btn-primary" type="button">Add Address</button>
+          </div>
+          <ng-container formArrayName="addresses">
+            <ng-container *ngFor="let address of addressesFa.controls;let addressFg=index;">
+              <ng-container [formGroupName]="addressFg">
+                <div class="col-md-6 mb-3">
+                  <label>Street No.</label>
+                  <input class="form-control"
+                         formControlName="streetNo"
+                         placeholder="Street No"
+                         shFcValidation type="text">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label>Street Name</label>
+                  <input class="form-control"
+                         formControlName="streetName"
+                         placeholder="Street Name"
+                         shFcValidation type="text">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label>Address Line 1</label>
+                  <input class="form-control"
+                         formControlName="addressLine1"
+                         placeholder="Address Line 1"
+                         shFcValidation type="text">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label>Address Line 2</label>
+                  <input class="form-control"
+                         formControlName="addressLine2"
+                         placeholder="Address Line 2"
+                         shFcValidation
+                         type="text">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label>Postal Code</label>
+                  <input class="form-control"
+                         formControlName="postalCode"
+                         placeholder="Postal Code"
+                         shFcValidation
+                         type="text">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label>City</label>
+                  <input class="form-control"
+                         formControlName="city"
+                         placeholder="City"
+                         shFcValidation
+                         type="text">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label>State</label>
+                  <input class="form-control"
+                         formControlName="state"
+                         placeholder="State"
+                         shFcValidation
+                         type="text">
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label>Country</label>
+                  <input class="form-control"
+                         formControlName="country"
+                         placeholder="Country"
+                         shFcValidation
+                         type="text">
+                </div>
+                <div class="col-md-12 mb-3">
+                  <button (click)="removeAddress(addressFg)"
+                          class="btn btn-danger"
+                          type="button">
+                    Remove Address
+                  </button>
+                </div>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <div class="col-md-12 mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">
+                Agree to terms and conditions
+              </label>
+            </div>
+          </div>
+          <div class="alert alert-success" role="alert" *ngIf="fg.valid">
+            All fields are valid!
+          </div>
+          <div class="col-12 d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">Trigger Validation</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
