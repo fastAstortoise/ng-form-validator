@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {AbstractControl} from "@angular/forms";
+import {AbstractControl} from '@angular/forms';
 
 @Component({
-  selector: 'lib-ng-form-validator',
+  selector: 'sh-form-validator-tmpl',
   template: `<div [ngClass]="textClass" *ngIf="isDirtyAndInvalid">
       <i [ngClass]="iconClass"></i>
       {{ message }}</div>`,
@@ -10,12 +10,11 @@ import {AbstractControl} from "@angular/forms";
 })
 export class NgFormValidatorComponent {
   @Input() control: AbstractControl;
-  @Input() showOnTouched = true;
-  @Input() textClass = 'invalid-feedback';
-  @Input() iconClass = 'exclamation-mark';
+  @Input() showOnLoad: boolean;
+  @Input() textClass: string;
+  @Input() iconClass: string;
   constructor(
-  ) {
-  }
+  ) {}
 
   get errors() {
     return this.control.errors;
@@ -27,7 +26,7 @@ export class NgFormValidatorComponent {
 
   get isDirtyAndInvalid() {
     const control = this.control;
-    return control && this.errors && (this.showOnTouched || control.touched) && control.invalid;
+    return control && control.invalid && (this.showOnLoad || control.touched) ;
   }
 
 }
